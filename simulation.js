@@ -1,4 +1,4 @@
-let scene, camera, renderer, controls, model, secondModel, thingy, spiral, model_container, tube;
+let scene, camera, renderer, controls, model, secondModel, thingy, spiral, model_container;
 let rotationSpeed = 0.05;
 let rotationDirection = 1;
 let thingyOriginalPosition;
@@ -117,7 +117,7 @@ function setupInputListeners() {
                 spiral.visible = true;
                 spiral.position.set(49, -5, -20);
                 spiral.scale.set(1.7, 1.7, 1.7);
-            }, 2000);
+            }, 1000);
 
             // After 5 seconds, return everything to original positions
             setTimeout(() => {
@@ -125,12 +125,12 @@ function setupInputListeners() {
                 model_container.position.copy(model_containerOriginalPosition);
                 thingy.position.copy(thingyOriginalPosition);
                 spiral.visible = false;
-            }, 20000);
+            }, 5000);
 
             // After 7 seconds, reverse rotation
             setTimeout(() => {
                 rotationDirection *= -1;
-            }, 7000);
+            }, 2500);
         }
     });
     
@@ -159,11 +159,6 @@ async function init() {
         spiral = await loadModel('spiral.gltf', 1);
         if (spiral) {
             spiral.visible = false;  // Initially invisible
-        }
-
-        tube = await loadModel('tube.gltf', 1);
-        if (tube) {
-            tube.position.set(30, 30, 30);
         }
 
         model_container = await loadModel('model_container.gltf', 4);
