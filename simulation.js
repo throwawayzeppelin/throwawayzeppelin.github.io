@@ -117,7 +117,7 @@ function setupInputListeners() {
                 spiral.visible = true;
                 spiral.position.set(49, -5, -20);
                 spiral.scale.set(1.7, 1.7, 1.7);
-            }, 1000);
+            }, 2000);
 
             // After 5 seconds, return everything to original positions
             setTimeout(() => {
@@ -125,12 +125,12 @@ function setupInputListeners() {
                 model_container.position.copy(model_containerOriginalPosition);
                 thingy.position.copy(thingyOriginalPosition);
                 spiral.visible = false;
-            }, 5000);
+            }, 20000);
 
             // After 7 seconds, reverse rotation
             setTimeout(() => {
                 rotationDirection *= -1;
-            }, 2500);
+            }, 5000);
         }
     });
     
